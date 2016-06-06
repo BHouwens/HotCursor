@@ -1,24 +1,13 @@
-import moment from 'moment';
+import * as moment from 'moment';
 import * as h337 from 'heatmap.js';
 const firebase = require('firebase');
 
-
-/*------- Interfaces -------*/
-
-interface IDataPoint {
-    timestamp: any;
-    x: number;
-    y: number;
-}
-
-/*------- Module -------*/
-
 class HotCursor {
-    db : any;
+    db: any;
     internalRef: any;
-    uuid : string;
-    step : number;
-    heatmap : any;
+    uuid: string;
+    step: number;
+    heatmap: any;
     
     constructor() {
         this.db = null;
@@ -27,6 +16,7 @@ class HotCursor {
         this.step = 0;
         this.heatmap = null;
     }
+    
 
     /**  
      *  Starts HotCursor up. 
@@ -41,6 +31,7 @@ class HotCursor {
 
         this.createUserSession(ref);
     }
+    
 
     /**
      *  Creates a new session in the DB when a user begins. Only called internally.
@@ -54,13 +45,14 @@ class HotCursor {
         
         this.internalRef.child(this.uuid).set({});
     }
+    
 
     /** 
      *  Generates a UUID 
      */
     
     generateUuid(): string {
-        function s4() {
+        function s4(): string {
             return Math.floor((1 + Math.random()) * 0x10000)
                 .toString(16)
                 .substring(1);
@@ -69,6 +61,7 @@ class HotCursor {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
     }
+    
 
     /** 
      *  Sends mouse coordinates and timestamp to the Firebase DB
@@ -78,13 +71,14 @@ class HotCursor {
      */
     
     sendMouseCoordinates(x: number, y: number) {
-        let timestamp: any = moment().format('MMM DD hh:mm:ss'),
-            postObj: IDataPoint = { timestamp, x, y },
+        let timestamp = moment().format('MMM DD hh:mm:ss'),
+            postObj = { timestamp, x, y },
             mouseCoordinateData = this.internalRef.child(this.uuid);
             
         mouseCoordinateData.child(this.step).set(postObj);
         this.step += 1;
     }
+    
     
     /** 
      *  Logs all the UUIDs for the current project so they can
@@ -109,6 +103,7 @@ class HotCursor {
         }
     }
     
+    
     /**  
      *  Generate a heatmap of the data for the given UUID. If no UUID is given,
      *  it will use the data from the current user session 
@@ -121,8 +116,19 @@ class HotCursor {
         if (uuid.indexOf('user-') == -1) uuid = 'user-' + uuid;
         
         if (this.internalRef.child(uuid)){
+            this.heatmap = h337.create(config);
+            
             this.internalRef.child(uuid).once('value', snap => {
-                console.log(snap.val());
+                let dataFromDatabase = snap.val(),
+                    heatmapData = dataFromDatabase.map(entry => {
+                        return {
+                            x: entry.x,
+                            y: entry.y,
+                            value: 80
+                        };
+                    });
+                
+                this.heatmap.setData({ max: 2000, data: heatmapData });
             }); 
         }else{
             throw new Error(
