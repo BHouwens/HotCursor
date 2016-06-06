@@ -2,6 +2,36 @@ import * as moment from 'moment';
 import * as h337 from 'heatmap.js';
 const firebase = require('firebase');
 
+
+/*-------------- Interfaces --------------*/ 
+
+interface IInitConfig {
+    apiKey: string;
+    authDomain: string;
+    databaseURL: string;
+    storageBucket: string;
+}
+
+interface IDataPoint {
+    timestamp: any;
+    x: number;
+    y: number;
+}
+
+interface IHeatMapDataPoint {
+    x: number;
+    y: number;
+    value: number;
+}
+
+interface IHeatMapConfig {
+    container: HTMLDivElement;
+    radius: number;
+}
+
+
+/*-------------- Module --------------*/ 
+
 class HotCursor {
     db: any;
     internalRef: any;
@@ -21,11 +51,11 @@ class HotCursor {
     /**  
      *  Starts HotCursor up. 
      * 
-     *  @param {Object} config - You can get this directly from Firebase
+     *  @param {IInitConfig} config - You can get this directly from Firebase
      *  @param {string} ref - The Firebase DB child node to attach data to. Optional
      */
     
-    initialise(config: Object, ref: string = null) {
+    initialise(config: IInitConfig, ref: string = null) {
         firebase.initializeApp(config);
         this.db = firebase.database();
 
@@ -72,7 +102,7 @@ class HotCursor {
     
     sendMouseCoordinates(x: number, y: number) {
         let timestamp = moment().format('MMM DD hh:mm:ss'),
-            postObj = { timestamp, x, y },
+            postObj: IDataPoint = { timestamp, x, y },
             mouseCoordinateData = this.internalRef.child(this.uuid);
             
         mouseCoordinateData.child(this.step).set(postObj);
@@ -108,11 +138,11 @@ class HotCursor {
      *  Generate a heatmap of the data for the given UUID. If no UUID is given,
      *  it will use the data from the current user session 
      * 
-     *  @param {Object} config - Heatmap.js config, consisting of container for heatmap and radius
+     *  @param {IHeatMapConfig} config - Heatmap.js config, consisting of container for heatmap and radius
      *  @param {string} uuid - UUID whose data will be used for heatmap generation. Optional
      */
     
-    generateHeatMap(config, uuid = this.uuid){
+    generateHeatMap(config: IHeatMapConfig, uuid: string = this.uuid){
         if (uuid.indexOf('user-') == -1) uuid = 'user-' + uuid;
         
         if (this.internalRef.child(uuid)){
@@ -120,7 +150,7 @@ class HotCursor {
             
             this.internalRef.child(uuid).once('value', snap => {
                 let dataFromDatabase = snap.val(),
-                    heatmapData = dataFromDatabase.map(entry => {
+                    heatmapData: IHeatMapDataPoint[] = dataFromDatabase.map(entry => {
                         return {
                             x: entry.x,
                             y: entry.y,
