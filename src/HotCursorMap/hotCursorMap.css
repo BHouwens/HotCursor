@@ -1,5 +1,4 @@
 .button{
-    composes: button from '../common.css';
     position: absolute;
     z-index: 3;
     transition: 0.3s;
