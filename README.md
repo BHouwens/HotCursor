@@ -9,5 +9,5 @@ Heatmap tool to view user behaviour over time, for UX.
 - [x] Push data to Firebase via movement
 - [x] Push data to Firebase via scroll
 - [x] Generate heatmap
-- [ ] Implement time sensitivity via RxJS
+- [x] Implement time sensitivity via RxJS
 - [ ] Create time manipulation
