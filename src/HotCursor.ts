@@ -1,6 +1,6 @@
 import * as moment from 'moment';
 import * as h337 from 'heatmap.js';
-const firebase = require('firebase');
+import * as firebase from 'firebase';
 
 
 /*-------------- Interfaces --------------*/ 
