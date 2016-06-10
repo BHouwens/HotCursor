@@ -10,8 +10,11 @@ Heatmap tool to view user behaviour over time, for UX.
 - [x] Push data to Firebase via scroll
 - [x] Generate heatmap
 - [x] Implement time sensitivity via RxJS
-- [ ] Handle scrolls beyond the initial height
-- [ ] Loading icon while pulling data
-- [ ] Implement a completion notifier
+- [x] Handle scrolls beyond the initial height (semi there)
+- [x] Loading icon while pulling data
+- [x] Implement a completion notifier
+- [ ] Log key up events and contents
+- [ ] Make it responsively aware
+- [ ] Make it able to redirect to URL
 - [ ] Show coordinates as they're parsed
 - [ ] Create time manipulation

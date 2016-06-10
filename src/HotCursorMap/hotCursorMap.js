@@ -10,10 +10,14 @@ export class HotCursorMap extends React.Component {
         super(props);
 
         this.generateHeatMap = this.generateHeatMap.bind(this);
+        this.acknowledgeComplete = this.acknowledgeComplete.bind(this);
+
         this.state = {
             overlayClasses: styles.overlay,
             buttonClasses: styles.button_container,
-            bgClasses: styles.background
+            bgClasses: styles.background,
+            completeClasses: styles.complete,
+            loaderClasses: styles.loader + ' ' + styles.hidden
         };
 
         hotCursor.initialise(config, 'RealEx');
@@ -33,6 +37,8 @@ export class HotCursorMap extends React.Component {
      */
 
     subscribeAndGenerate(dataFeed) {
+        this.setState({ loaderClasses: styles.loader + ' ' + styles.hidden });
+
         dataFeed.subscribe(
             entry => {
                 hotCursor.heatmap.addData({
@@ -40,6 +46,11 @@ export class HotCursorMap extends React.Component {
                     y: entry.y,
                     value: entry.value
                 });
+
+                if (entry.scrollPosition != hotCursor.currentScrollPosition){
+                    hotCursor.scrollToPosition(entry.scrollPosition);
+                    hotCursor.currentScrollPosition = entry.scrollPosition;
+                }
             },
 
             error => {
@@ -50,7 +61,7 @@ export class HotCursorMap extends React.Component {
             },
 
             () => {
-                console.log('Heatmap complete');
+                this.setState({ completeClasses: styles.complete + ' ' + styles.visible });
             }
         );
     }
@@ -66,7 +77,8 @@ export class HotCursorMap extends React.Component {
         this.setState({
             overlayClasses: styles.overlay + ' ' + styles.visible,
             buttonClasses: styles.button_container + ' ' + styles.hidden,
-            bgClasses: styles.background + ' ' + styles.visible
+            bgClasses: styles.background + ' ' + styles.visible,
+            loaderClasses: styles.loader
         });
 
         window.removeEventListener('mousemove', this.sendMouseCoordinates, true);
@@ -75,14 +87,27 @@ export class HotCursorMap extends React.Component {
             this.subscribeAndGenerate(dataFeed);
         });
     }
-    
+
+
+    /**
+     *  Closes the "complete" notifier bar
+     */
+
+    acknowledgeComplete(e) {
+        this.setState({ completeClasses: styles.complete });
+    }
+
 
     render() {
         return (
             <div>
+                <div className={this.state.loaderClasses}></div>
+
                 <div className={this.state.buttonClasses}>
                     <button id="clicker" className={styles.button} onClick={this.generateHeatMap}>Start Heatmap</button>
                 </div>
+                <div onClick={this.acknowledgeComplete} className={this.state.completeClasses}>heatmap complete!</div>
+
                 <div className={this.state.overlayClasses}></div>
                 <div className={this.state.bgClasses}></div>
             </div>

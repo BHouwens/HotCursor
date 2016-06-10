@@ -11,6 +11,7 @@ class HotCursor {
         this.currentProjectRef;
         this.uuid = '';
         this.step = 0;
+        this.currentScrollPosition = 0;
         this.lastRecordedTime = moment().format('MMM DD hh:mm:ss');
     }
 
@@ -62,6 +63,35 @@ class HotCursor {
 
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
+    }
+
+
+    /**
+     *  Handles scrolling of the page if the scroll position has changed
+     * 
+     *  @param {number} finalPosition - The final position from the top of the page to scroll to
+     *  @param {number} speed - Speed with which to make the scroll animation. Optional
+     */
+
+    scrollToPosition(finalPosition, speed = 100) {
+        let currentTime = 0,
+            time = Math.max(.1, Math.min(Math.abs(window.scrollY - finalPosition) / speed, .8));
+
+        function tick() {
+            currentTime += 1 / 60;
+
+            let currentPosition = currentTime / time,
+                exponent = Math.sin(currentPosition * (Math.PI / 2));
+
+            if (currentPosition < 1) {
+                window.requestAnimationFrame(tick);
+                window.scrollTo(0, window.scrollY + ((finalPosition - window.scrollY) * exponent));
+            } else {
+                window.scrollTo(0, finalPosition);
+            }
+        }
+
+        tick();
     }
 
 
@@ -133,6 +163,7 @@ class HotCursor {
                     value: 0.2,
                     x: dataFromDatabase[entry].x,
                     y: dataFromDatabase[entry].y,
+                    scrollPosition: dataFromDatabase[entry].scrollPosition,
                     timestamp: dataFromDatabase[entry].timestamp
                 });
             }
@@ -149,9 +180,9 @@ class HotCursor {
      */
 
     getDelayAndMap(entry) {
-        let { x, y, value } = entry,
+        let { x, y, value, scrollPosition } = entry,
             delayInMilliseconds = moment(entry.timestamp).diff(this.lastRecordedTime),
-            delayObservable = Rx.Observable.of({ x, y, value }),
+            delayObservable = Rx.Observable.of({ x, y, value, scrollPosition }),
             finalDelay = delayInMilliseconds > 0 ? delayInMilliseconds : 100,
             finalDelayMapping = delayObservable.delay(finalDelay);
 
@@ -173,16 +204,17 @@ class HotCursor {
         if (this.currentProjectRef.child(uuid)) {
 
             this.heatmap = h337.create(config);
-            
-            return this.currentProjectRef.child(uuid).once('value')
-                       .then(data => {
-                            const dataFromDatabase = data.val(),
-                                  heatmapData = this.mungeDatabaseData(dataFromDatabase);
+            return this.currentProjectRef
+                .child(uuid)
+                .once('value')
+                .then(data => {
+                    const dataFromDatabase = data.val(),
+                        heatmapData = this.mungeDatabaseData(dataFromDatabase);
 
-                            return Rx.Observable
-                                     .from(heatmapData)
-                                     .concatMap(entry => this.getDelayAndMap(entry));
-                        });
+                    return Rx.Observable
+                        .from(heatmapData)
+                        .concatMap(entry => this.getDelayAndMap(entry));
+                });
 
         } else {
             throw new Error(
