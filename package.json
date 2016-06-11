@@ -24,8 +24,10 @@
   },
   "homepage": "https://github.com/BHouwens/HotCursor#readme",
   "dependencies": {
+    "autoprefixer": "^6.3.6",
     "firebase": "^3.0.3",
     "heatmap.js": "^2.0.2",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "npm-dev-boilerplate": "^1.0.4"
   }
 }
