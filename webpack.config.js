@@ -17,6 +17,7 @@ var path = require("path"),
 module.exports = {
   entry: {
     app: [
+      'babel-polyfill',
       './src/index.js'
     ]
   },
@@ -28,13 +29,18 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader') 
+        loader: ExtractTextPlugin.extract(
+          'style-loader', 
+          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
+        ) 
       },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
-        query: { presets: ['es2015', 'react', 'stage-0'] }
+        query: { 
+          presets: ['es2015', 'react', 'stage-0'] 
+        }
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,

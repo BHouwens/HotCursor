@@ -28,7 +28,7 @@ class HotCursor {
         firebase.initializeApp(config);
         this.db = firebase.database();
 
-        this.createUserSession(ref);
+        if (ref !== null) this.createUserSession(ref);
     }
 
 
@@ -209,7 +209,7 @@ class HotCursor {
                 .once('value')
                 .then(data => {
                     const dataFromDatabase = data.val(),
-                        heatmapData = this.mungeDatabaseData(dataFromDatabase);
+                          heatmapData = this.mungeDatabaseData(dataFromDatabase);
 
                     return Rx.Observable
                         .from(heatmapData)

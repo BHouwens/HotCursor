@@ -1,0 +1,27 @@
+.Greeting__container___1GL7p{
+    max-width: 1080px;
+    width: 95%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.Greeting__container___1GL7p h1{
+    margin-top: 20%;
+    font-size: calc(30px + 15 * ((100vw - 420px) / 860));
+}
+.Greeting__container___1GL7p h1, .Greeting__container___1GL7p p{
+    font-family: Helvetica, Arial, sans-serif;
+}
+@media screen and (min-width: 1280px){
+    .Greeting__container___1GL7p h1{
+        font-size: 45px;
+    }
+}
+@media screen and (max-width: 420px){
+    .Greeting__container___1GL7p h1{
+        font-size: 30px;
+    }
+}.app__container___1iszn{
+    
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHlsZS5jc3MiLCJzb3VyY2VSb290IjoiIn0=*/

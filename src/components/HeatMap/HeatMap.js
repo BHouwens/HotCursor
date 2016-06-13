@@ -2,9 +2,9 @@ import React from 'react';
 import * as Rx from 'rx';
 import { hotCursor } from '../../utils/hotCursor';
 import { config } from '../../utils/config';
-import styles from './HotCursorMap.css';
+import styles from './HeatMap.css';
 
-export class HotCursorMap extends React.Component {
+export class HeatMap extends React.Component {
 
     constructor(props) {
         super(props);
