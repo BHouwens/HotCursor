@@ -19,6 +19,11 @@ export function sessionSelection(state = initialState, action) {
                 sessions: action.sessions
             });
 
+        case 'SELECT_SESSION':
+            return Object.assign({}, state, {
+                defaultSelection: action.session
+            });
+
         default:
             return state;
     }   

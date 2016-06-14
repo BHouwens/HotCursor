@@ -5,17 +5,43 @@ import { SessionSelector } from '../../containers/sessionSelector';
 import styles from './Greeting.css'
 
 export class Greeting extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.hide = this.hide.bind(this);
+        this.show = this.show.bind(this);
+
+        this.state = {
+            classes: styles.container
+        };
+    }
+
+    hide() {
+        let { onHide } = this.props;
+
+        onHide();
+        this.setState({ classes: styles.container + ' ' + styles.hidden });
+    }
+
+    show() {
+        this.setState({ classes: styles.container });
+    }
+
     render() {
         return (
-            <div className={styles.container}>
-                <h1>Hey there</h1>
-                <p>Choose a project and user session, then begin</p>
+            <section>
+                <div className={styles.back_button} onClick={this.show}></div>
+                <div className={this.state.classes}>
+                    <h1>Hey there</h1>
+                    <p>Choose a project and user session, then begin</p>
 
-                <ProjectSelector />
-                <SessionSelector />
+                    <ProjectSelector />
+                    <SessionSelector />
 
-                <button>Go!</button>
-            </div>
+                    <button onClick={this.hide}>Go!</button>
+                </div>
+            </section>
         );
     }
 }
