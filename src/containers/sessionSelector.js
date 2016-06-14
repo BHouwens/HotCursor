@@ -7,7 +7,8 @@ function mapStateToProps(state) {
 
     return { 
         sessions: sessionSelection.sessions, 
-        loading: sessionSelection.loading
+        loading: sessionSelection.loading,
+        defaultSelection: sessionSelection.defaultSelection
     };
 }
 

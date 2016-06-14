@@ -7,7 +7,8 @@ function mapStateToProps(state) {
 
     return { 
         projects: projectSelection.allProjects, 
-        loading: projectSelection.loading
+        loading: projectSelection.loading,
+        defaultValue: projectSelection.defaultValue
     };
 }
 

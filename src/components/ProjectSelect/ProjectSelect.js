@@ -2,10 +2,11 @@ import React from 'react';
 
 export class ProjectSelect extends React.Component{
     render() {
-        let { projects, onProjectSelect } = this.props;
+        let { projects, onProjectSelect, defaultValue } = this.props;
 
         return (
-            <select onChange={(e) => onProjectSelect(e.target.value) }>
+            <select defaultValue={defaultValue} onChange={(e) => onProjectSelect(e.target.value) }>
+                <option key="0">{defaultValue}</option>
                 {projects.map(project => {
                     return <option key={project}>{project}</option>
                 }) }

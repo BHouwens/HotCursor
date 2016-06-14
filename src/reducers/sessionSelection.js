@@ -1,18 +1,21 @@
 const initialState = {
     loading: false,
-    currentSession: '',
+    defaultSelection: '- Select a project first -',
     sessions: []
 };
 
 export function sessionSelection(state = initialState, action) {
     switch(action.type) {
         case 'REQUEST_SESSIONS':
-            return Object.assign({}, state, { loading: true });
+            return Object.assign({}, state, { 
+                loading: true, 
+                defaultSelection: '- Okay, fetching sessions -'
+            });
 
         case 'GOT_SESSIONS':
             return Object.assign({}, state, {
                 loading: false,
-                currentSession: action.sessions[0],
+                defaultSelection: '- Select a session -',
                 sessions: action.sessions
             });
 

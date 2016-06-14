@@ -1,7 +1,7 @@
 const initialState = {
     loading: false,
-    currentProject: '',
-    allProjects: [' ']
+    defaultValue: '- Fetching projects -',
+    allProjects: []
 };
 
 export function projectSelection(state = initialState, action) {
@@ -12,7 +12,7 @@ export function projectSelection(state = initialState, action) {
         case 'GOT_PROJECTS':
             return Object.assign({}, state, {
                 loading: false,
-                currentProject: action.projects[0],
+                defaultValue: '- Select a project -',
                 allProjects: action.projects
             });
 
