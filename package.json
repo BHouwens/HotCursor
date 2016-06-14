@@ -30,6 +30,8 @@
     "heatmap.js": "^2.0.2",
     "moment": "^2.13.0",
     "npm-dev-boilerplate": "^1.0.4",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0",
     "rx": "^4.1.0"
   },
   "devDependencies": {

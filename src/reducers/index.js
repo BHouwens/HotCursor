@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import { projectSelectionReducer } from './projectSelectionReducer';
+import { projectSelection } from './projectSelection';
+import { sessionSelection } from './sessionSelection';
 
 export const rootReducer = combineReducers({
-   projectSelectionReducer
+   projectSelection,
+   sessionSelection
 });

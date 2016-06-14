@@ -1,5 +1,7 @@
 import React from 'react';
 import { ProjectSelector } from '../../containers/projectSelector';
+import { SessionSelector } from '../../containers/sessionSelector';
+
 import styles from './Greeting.css'
 
 export class Greeting extends React.Component {
@@ -10,6 +12,7 @@ export class Greeting extends React.Component {
                 <p>Choose a project and user session, then begin</p>
 
                 <ProjectSelector />
+                <SessionSelector />
 
                 <button>Go!</button>
             </div>

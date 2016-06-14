@@ -1,25 +1,25 @@
 import { connect } from 'react-redux';
-import { selectProject } from '../actions/projectSelectionActions';
+import { fetchSessions } from '../actions/sessionSelection';
 import { ProjectSelect } from '../components/ProjectSelect/ProjectSelect';
 
 function mapStateToProps(state) {
-    let { projectSelectionReducer } = state;
-    return { projects: projectSelectionReducer.allProjects };
+    let { projectSelection } = state;
+
+    return { 
+        projects: projectSelection.allProjects, 
+        loading: projectSelection.loading
+    };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToState(dispatch) {
     return {
         onProjectSelect: (project) => {
-            dispatch(selectProject(project));
-        },
-
-        onProjectFetch: () => {
-            dispatch(fetchProjects());
+            dispatch(fetchSessions(project));
         }
     }
 }
 
 export const ProjectSelector = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToState
 )( ProjectSelect );
