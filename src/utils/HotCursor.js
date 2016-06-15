@@ -121,26 +121,29 @@ class HotCursor {
      *  @param {boolean} logging - Whether to log the UUIDs to console for inspection
      */
 
-    getAllSessionIDs(project = null, logging = false) {
-        let uuids = [],
-            projectRef = project === null ? this.currentProjectRef : this.db.ref(project);
+    async getAllSessionIDs(project = null, logging = false) {
+        if (project !== null) this.currentProjectRef = this.db.ref(project);
 
-        if (projectRef) {
+        if (this.currentProjectRef) {
             if (logging) {
                 console.log('--------');
                 console.log('UUIDS FOR PASSED PROJECT:');
                 console.log('--------');
             }
 
-            this.currentProjectRef.once('value', snap => {
-                Object.keys(snap.val()).map(value => {
-                    if (logging) console.log(value);
-                    uuids.push(value);
-                });
+            let uuids = await this.currentProjectRef.once('value').then(snap => {
+                        let uuids = [];
+                        
+                        Object.keys(snap.val()).map(value => {
+                            if (logging) console.log(value);
+                            uuids.push(value);
+                        });
 
-                if (logging) console.log('--------');
-                return uuids;
-            });
+                        if (logging) console.log('--------');
+                        return uuids;
+                    });
+
+            return uuids;
         } else {
             throw new Error(`There is no project ${project} in the Firebase database`);
         }

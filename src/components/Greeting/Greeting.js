@@ -18,7 +18,7 @@ export class Greeting extends React.Component {
     }
 
     hide() {
-        let { onHide } = this.props;
+        let { onHide, selection } = this.props;
 
         onHide();
         this.setState({ classes: styles.container + ' ' + styles.hidden });

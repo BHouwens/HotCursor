@@ -8,17 +8,6 @@ export function selectProject(project){
     };
 }
 
-export function fetchProjects(){
-    hotCursor.initialise(config);
-
-    return async function(dispatch) {
-        dispatch(requestProjects);
-        
-        let databaseContents = await hotCursor.db.ref().once('value').then(snap => snap.val());
-        dispatch( gotProjects(Object.keys(databaseContents)) );
-    }
-}
-
 function gotProjects(projects){
     return {
         type: 'GOT_PROJECTS',
@@ -28,4 +17,20 @@ function gotProjects(projects){
 
 function requestProjects(){
     return { type: 'REQUEST_PROJECTS' };
+}
+
+export function fetchProjects(){
+    hotCursor.initialise(config);
+
+    return async function(dispatch) {
+        dispatch(requestProjects);
+        
+        try{
+            let databaseContents = await hotCursor.db.ref().once('value').then(snap => snap.val());
+            dispatch( gotProjects(Object.keys(databaseContents)) );
+
+        }catch(error) {
+            throw new Error(`Process to fetch the projects fell over with error: ${error}`);
+        }
+    }
 }

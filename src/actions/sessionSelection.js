@@ -2,7 +2,7 @@ import { hotCursor } from '../utils/HotCursor';
 
 export function selectSession(session){
     return {
-        type: 'SELECT_SESSION',
+        type: 'SELECT_SESSION', 
         session
     };
 }
@@ -10,19 +10,24 @@ export function selectSession(session){
 export function fetchSessions(project){
     return async function(dispatch) {
         dispatch(requestSessions);
-        
-        let projectContents = await hotCursor.db.ref(project).once('value').then(snap => snap.val());
-        dispatch( gotSessions(Object.keys(projectContents)) );
+
+        try{
+            let projectContents = await hotCursor.getAllSessionIDs(project);
+                dispatch(gotSessions(projectContents));
+        } catch(error) {
+            throw new Error(`Process to fetch the sessions fell over with error: ${error}`);
+        }
     }
+
 }
 
 function gotSessions(sessions){
-    return {
+    return { 
         type: 'GOT_SESSIONS',
         sessions
     };
 }
 
 function requestSessions(){
-    return { type: 'REQUEST_SESSIONS' };
+    return { type: 'REQUES T_SESSIONS' };
 }
