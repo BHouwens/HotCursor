@@ -13,7 +13,6 @@ Heatmap tool to view user behaviour over time, for UX.
 - [x] Handle scrolls beyond the initial height (semi there)
 - [x] Loading icon while pulling data
 - [x] Implement a completion notifier
-- [ ] Log key up events and contents
 - [ ] Make it responsively aware
 - [ ] Make it able to redirect to URL
 - [ ] Show coordinates as they're parsed
