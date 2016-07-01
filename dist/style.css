@@ -1,4 +1,4 @@
-.Greeting__container___1GL7p{
+.Greeting__container___1dUR8{
     width: 100%;
     height: 100%;
     display: block;
@@ -6,28 +6,27 @@
     background: white;
     left: 0;
     right: 0;
-    position: absolute;
     z-index: 3;
     transition: 0.3s;
     text-align: center;
 }
 
-.Greeting__container___1GL7p h1{
+.Greeting__container___1dUR8 h1{
     margin-top: 20%;
     font-size: calc(30px + 15 * ((100vw - 420px) / 860));
 }
 
-.Greeting__container___1GL7p h1, .Greeting__container___1GL7p p{
+.Greeting__container___1dUR8 h1, .Greeting__container___1dUR8 p{
     font-family: Helvetica, Arial, sans-serif;
 }
 
-.Greeting__container___1GL7p.Greeting__hidden___3ft5q{
+.Greeting__container___1dUR8.Greeting__hidden___1cOZb{
     visibility: hidden;
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
 
-.Greeting__back_button___2N71Q{
+.Greeting__back_button___2bgAh{
     position: absolute;
     z-index: 2;
     background: red;
@@ -41,39 +40,33 @@
 
 @media screen and (min-width: 1280px){
 
-    .Greeting__container___1GL7p h1{
+    .Greeting__container___1dUR8 h1{
         font-size: 45px;
     }
 }
 
 @media screen and (max-width: 420px){
 
-    .Greeting__container___1GL7p h1{
+    .Greeting__container___1dUR8 h1{
         font-size: 30px;
     }
 }
-body{
+body,
+html{
     margin: 0;
     width: 100%;
     min-height: 100%;
 }
 
-.app__app___Zotaq:before,
-.app__app___Zotaq:after{
-    content: ' ';
-    display: table;
-}
-
-.app__app___Zotaq:after{
-    clear: both;
-}
-
-.app__app___Zotaq{
+.app__app___b-6OS{
     width: 100%;
     height: 100%;
-    display: block;
-    position: relative;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background: #ccc;
-    zoom: 1;
 }
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHlsZS5jc3MiLCJzb3VyY2VSb290IjoiIn0=*/
