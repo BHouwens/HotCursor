@@ -30,17 +30,23 @@ export class Greeting extends React.Component {
 
     render() {
         return (
-            <section>
-                <div className={styles.back_button} onClick={this.show}></div>
+            <section className={styles.greeting}>
+
+                <button className={styles.back_button} onClick={this.show}></button>
+
                 <div className={this.state.classes}>
-                    <h1>Hey there</h1>
-                    <p>Choose a project and user session, then begin</p>
+                    <h1 className={styles.greetingTitle}>Hey there</h1>
+                    
+                    <section className={styles.selectors}>
+                        <p>Choose a project and user session, then begin</p>
 
-                    <ProjectSelector />
-                    <SessionSelector />
+                        <ProjectSelector />
+                        <SessionSelector />
 
-                    <button onClick={this.hide}>Go!</button>
+                        <button onClick={this.hide}>Go!</button>
+                    </section>
                 </div>
+
             </section>
         );
     }
