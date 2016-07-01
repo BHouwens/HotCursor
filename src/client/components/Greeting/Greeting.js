@@ -11,30 +11,48 @@ export class Greeting extends React.Component {
 
         this.hide = this.hide.bind(this);
         this.show = this.show.bind(this);
+        this.showWarning = this.showWarning.bind(this);
+        this.hideWarning = this.hideWarning.bind(this);
 
         this.state = {
-            classes: styles.container
+            panelClasses: styles.container,
+            warningClasses: styles.warning
         };
     }
 
-    hide() {
-        let { onHide, selection } = this.props;
+    showWarning(){
+        let { selection } = this.props;
 
-        onHide(selection);
-        this.setState({ classes: styles.container + ' ' + styles.hidden });
+        if (selection.indexOf('Select a') != -1){
+            this.setState({ warningClasses: styles.warning + ' ' + styles.visible });
+        } 
+    }
+
+    hideWarning(){
+        this.setState({ warningClasses: styles.warning });
+    }
+
+    hide() {
+        let { onStartHeatmap, selection } = this.props;
+
+        onStartHeatmap(selection);
+        this.setState({ panelClasses: styles.container + ' ' + styles.hidden });
     }
 
     show() {
-        this.setState({ classes: styles.container });
+        this.setState({ panelClasses: styles.container });
     }
 
     render() {
         return (
             <section className={styles.greeting}>
 
-                <button className={styles.back_button} onClick={this.show}></button>
+                <button className={styles.backButton} onClick={this.show}>
+                    <span className={styles.arrow}></span>
+                    <span className={styles.backTitle}>Select another project</span>
+                </button>
 
-                <div className={this.state.classes}>
+                <div className={this.state.panelClasses}>
                     <h1 className={styles.greetingTitle}>Hey there</h1>
                     
                     <section className={styles.selectors}>
@@ -43,7 +61,16 @@ export class Greeting extends React.Component {
                         <ProjectSelector />
                         <SessionSelector />
 
-                        <button onClick={this.hide}>Go!</button>
+                        <button 
+                            onMouseEnter={this.showWarning} 
+                            onMouseLeave={this.hideWarning} 
+                            onClick={this.hide}>
+                                Go!
+                        </button>
+
+                        <p className={this.state.warningClasses}>
+                            Remember to choose both a project and session before you get going
+                        </p>
                     </section>
                 </div>
 

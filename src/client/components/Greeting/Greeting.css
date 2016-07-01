@@ -33,17 +33,47 @@
 
 .selectors{
     flex: 1 100%;
+
+    button {
+        cursor: pointer;
+    }
 }
 
-.back_button{
+.warning{
+    color: mediumslateblue;
+    opacity: 0;
+    transition: 0.3s;
+    font-size: responsive 12px 14px;
+
+    &.visible{
+        opacity: 1;
+    }
+}
+
+.backButton{
     position: absolute;
     z-index: 2;
-    background: red;
-    width: 50px;
-    height: 50px;
-    display: block;
+    border: none;
+    cursor: pointer;
+    display: flex;
     top: 10px;
     left: 10px;
     cursor: pointer;
+    background: transparent;
+
 }
 
+.backTitle{
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+}
+
+.arrow{
+    background: url('./images/left-arrow.svg');
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    display: inline-block;
+    margin-right: 10px;
+}

@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToState(dispatch) {
     return {
-        onHide: (selection) => {
+        onStartHeatmap: (selection) => {
             dispatch(fetchSessionData(selection));
         }
     }

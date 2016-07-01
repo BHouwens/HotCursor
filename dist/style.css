@@ -1,19 +1,28 @@
-.Greeting__container___1dUR8{
+.common__flexChildColumn___2CV9m {
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}.Greeting__container___1dUR8{
     width: 100%;
     height: 100%;
-    display: block;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    position: absolute;
     margin: 0 auto;
     background: white;
-    left: 0;
-    right: 0;
-    z-index: 3;
     transition: 0.3s;
     text-align: center;
-}
-
-.Greeting__container___1dUR8 h1{
-    margin-top: 20%;
-    font-size: calc(30px + 15 * ((100vw - 420px) / 860));
+    z-index: 3;
 }
 
 .Greeting__container___1dUR8 h1, .Greeting__container___1dUR8 p{
@@ -26,36 +35,104 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
 
-.Greeting__back_button___2bgAh{
+.Greeting__greeting___3Jgms {
+}
+
+.Greeting__greetingTitle___1a4k2{
+    -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+            align-self: flex-end;
+    -webkit-flex: 1 100%;
+        -ms-flex: 1 100%;
+            flex: 1 100%;
+    margin-bottom: 0;
+    font-size: calc(30px + 15 * ((100vw - 420px) / 860));
+}
+
+.Greeting__selectors___2zUok{
+    -webkit-flex: 1 100%;
+        -ms-flex: 1 100%;
+            flex: 1 100%;
+}
+
+.Greeting__selectors___2zUok button {
+    cursor: pointer;
+}
+
+.Greeting__warning___3fVRW{
+    color: mediumslateblue;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    transition: 0.3s;
+    font-size: calc(12px + 2 * ((100vw - 420px) / 860));
+}
+
+.Greeting__warning___3fVRW.Greeting__visible___gHhhZ{
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+.Greeting__backButton___rK0CW{
     position: absolute;
     z-index: 2;
-    background: red;
-    width: 50px;
-    height: 50px;
-    display: block;
+    border: none;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     top: 10px;
     left: 10px;
     cursor: pointer;
+    background: transparent;
+
+}
+
+.Greeting__backTitle___23F4y{
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+}
+
+.Greeting__arrow___jt5SV{
+    background: url(fab52fb5fd16f7c7fd23cdb2687ea35a.svg);
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 @media screen and (min-width: 1280px){
 
-    .Greeting__container___1dUR8 h1{
+    .Greeting__greetingTitle___1a4k2{
         font-size: 45px;
+    }
+
+    .Greeting__warning___3fVRW{
+        font-size: 14px;
     }
 }
 
 @media screen and (max-width: 420px){
 
-    .Greeting__container___1dUR8 h1{
+    .Greeting__greetingTitle___1a4k2{
         font-size: 30px;
+    }
+
+    .Greeting__warning___3fVRW{
+        font-size: 12px;
     }
 }
 body,
 html{
     margin: 0;
+    padding: 0;
     width: 100%;
-    min-height: 100%;
+    height: 100%;
+}
+
+body > div, html > div {
+    height: 100%;
 }
 
 .app__app___b-6OS{
