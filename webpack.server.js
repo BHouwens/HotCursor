@@ -12,9 +12,9 @@ module.exports = {
 		path: path.resolve(__dirname, "dist", "server"),
 		filename: "server.js",
 		//This corrects the map files to be relative to the distrubution
-		// devtoolModuleFilenameTemplate: function (info) {
-		// 	return path.relative(distDir, info.absoluteResourcePath);
-		// }
+		devtoolModuleFilenameTemplate: function (info) {
+			return path.relative(path.resolve(__dirname, "dist", "server"), info.absoluteResourcePath);
+		}
 	},
 	externals: [nodeExternals()],
 	resolve: {

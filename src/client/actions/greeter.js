@@ -1,5 +1,5 @@
 import { hotCursor } from '../utils/HotCursor';
-import { setWebView } from './webView';
+import { fetchWebView } from './webView';
 
 export function fetchSessionData(session){
     return async function(dispatch) {
@@ -12,7 +12,7 @@ export function fetchSessionData(session){
         let { width, height, url } = sessionData;
 
         dispatch( gotSessionData(sessionData) );
-        dispatch( setWebView(width, height, url) );        
+        dispatch( fetchWebView(width, height, url) );        
     }
 }
 
