@@ -68,7 +68,7 @@ export class HeatMap extends React.Component {
 
 
     /**
-     *  Generates heatmap on button click. Removes event listener and 
+     *  Generates heatmap on button click. Removes event listener and gets heatmap data to subscribe to
      */
 
     generateHeatMap() {

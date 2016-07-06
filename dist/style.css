@@ -22,7 +22,7 @@
     background: white;
     transition: 0.3s;
     text-align: center;
-    z-index: 3;
+    z-index: 99;
 }
 
 .Greeting__container___1dUR8 h1, .Greeting__container___1dUR8 p{
@@ -74,23 +74,23 @@
 
 .Greeting__backButton___rK0CW{
     position: absolute;
-    z-index: 2;
+    z-index: 98;
     border: none;
     cursor: pointer;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    top: 10px;
-    left: 10px;
+    margin-top: 5px;
     cursor: pointer;
     background: transparent;
-
 }
 
 .Greeting__backTitle___23F4y{
     text-transform: uppercase;
     color: white;
     font-weight: bold;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
 .Greeting__arrow___jt5SV{
@@ -123,7 +123,16 @@
         font-size: 12px;
     }
 }
-body,
+.WebView__cover___-WGcd{
+    position: absolute;
+    display: block;
+    background: black;
+    opacity: 0.6;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}body,
 html{
     margin: 0;
     padding: 0;

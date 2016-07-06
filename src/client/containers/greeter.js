@@ -1,22 +1,16 @@
 import { connect } from 'react-redux';
-
-import { fetchSessionData } from '../actions/greeter';
 import { Greeting } from '../components/Greeting/Greeting';
 
 function mapStateToProps(state) {
-    let { sessionSelection } = state;
-    return { selection: sessionSelection.defaultSelection };
-}
+    let { greeter } = state;
 
-function mapDispatchToState(dispatch) {
-    return {
-        onStartHeatmap: (selection) => {
-            dispatch(fetchSessionData(selection));
-        }
-    }
+    return { 
+        sessionData: greeter.sessionData,
+        panelClass: greeter.panelClass,
+        secondaryClass: greeter.secondaryClass
+    };
 }
 
 export const Greeter = connect(
-    mapStateToProps,
-    mapDispatchToState
+    mapStateToProps
 )( Greeting );

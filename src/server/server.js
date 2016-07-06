@@ -63,6 +63,10 @@ app.post('/get-image', (req, res) => {
 
 });
 
+app.get('/screenshot', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'screenshot.jpeg'));
+});
+
 app.listen(3000, () => {
     console.log('App running on port 3000');
     if (isDev) console.log('App is in development mode');

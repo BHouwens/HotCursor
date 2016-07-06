@@ -5,7 +5,7 @@
   "scripts": {
     "build:client": "webpack --config webpack.client.js",
     "build:server": "webpack --config webpack.server.js",
-    "start": "node dist/server/server.js"
+    "start": "export NODE_ENV=development && node dist/server/server.js"
   },
   "repository": {
     "type": "git",
@@ -34,10 +34,12 @@
     "firebase": "^3.0.3",
     "heatmap.js": "^2.0.2",
     "isomorphic-fetch": "^2.2.1",
+    "json-loader": "^0.5.4",
     "moment": "^2.13.0",
     "node-fetch": "^1.5.3",
     "npm-dev-boilerplate": "^1.0.4",
     "phantomjs": "^2.1.7",
+    "react": "^0.14.0",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
     "rx": "^4.1.0",

@@ -8,7 +8,7 @@
     background: white;
     transition: 0.3s;
     text-align: center;
-    z-index: 3;
+    z-index: 99;
 
     h1, p{
         font-family: Helvetica, Arial, sans-serif;
@@ -52,21 +52,20 @@
 
 .backButton{
     position: absolute;
-    z-index: 2;
+    z-index: 98;
     border: none;
     cursor: pointer;
     display: flex;
-    top: 10px;
-    left: 10px;
+    margin-top: 5px;
     cursor: pointer;
     background: transparent;
-
 }
 
 .backTitle{
     text-transform: uppercase;
     color: white;
     font-weight: bold;
+    opacity: 1;
 }
 
 .arrow{
