@@ -1,6 +1,6 @@
 import React from 'react';
 import { Greeter } from '../../containers/greeter';
-import { WebViewer } from '../../containers/webView';
+import { WebView } from '../../containers/webView';
 import styles from './app.css';
 
 export class App extends React.Component {
@@ -8,7 +8,7 @@ export class App extends React.Component {
         return (
             <div className={styles.app}>
                 <Greeter />
-                <WebViewer />
+                <WebView />
             </div>
         );
     }

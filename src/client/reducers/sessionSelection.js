@@ -6,6 +6,9 @@ const initialState = {
 
 export function sessionSelection(state = initialState, action) {
     switch(action.type) {
+        case 'RESET_SESSIONS':
+            return Object.assign({}, state, initialState);
+
         case 'REQUEST_SESSIONS':
             return Object.assign({}, state, { 
                 loading: true, 
@@ -17,11 +20,6 @@ export function sessionSelection(state = initialState, action) {
                 loading: false,
                 defaultSelection: '- Select a session -',
                 sessions: action.sessions
-            });
-
-        case 'SELECT_SESSION':
-            return Object.assign({}, state, {
-                defaultSelection: action.session
             });
 
         default:

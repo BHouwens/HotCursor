@@ -1,16 +1,23 @@
 import { connect } from 'react-redux';
-import { Greeting } from '../components/Greeting/Greeting';
+import { GreeterComponent } from '../components/Greeter/Greeter';
+import { resetProject } from '../actions/greeter';
+import { resetSessions } from '../actions/sessionSelection';
 
 function mapStateToProps(state) {
     let { greeter } = state;
+    return { secondaryClass: greeter.secondaryClass };
+}
 
-    return { 
-        sessionData: greeter.sessionData,
-        panelClass: greeter.panelClass,
-        secondaryClass: greeter.secondaryClass
-    };
+function mapDispatchToState(dispatch) {
+    return {
+        onChooseProject: () => {
+            dispatch(resetProject());
+            dispatch(resetSessions());
+        }
+    }
 }
 
 export const Greeter = connect(
-    mapStateToProps
-)( Greeting );
+    mapStateToProps,
+    mapDispatchToState
+)( GreeterComponent );

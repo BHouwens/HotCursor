@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { selectSession, fetchSessionData } from '../actions/sessionSelection';
+import { fetchSessionData } from '../actions/sessionSelection';
 import { SessionSelect } from '../components/SessionSelect/SessionSelect';
 
 function mapStateToProps(state) {
@@ -15,12 +15,7 @@ function mapStateToProps(state) {
 function mapDispatchToState(dispatch) {
     return {
         onSessionSelect: (session) => {
-            dispatch(selectSession(session));
             dispatch(fetchSessionData(session));
-        },
-
-        fetchSessions: () => {
-            dispatch(fetchSessions());
         }
     }
 }

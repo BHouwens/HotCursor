@@ -8,7 +8,7 @@
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-}.Greeting__container___1dUR8{
+}.Greeter__container___3oZQv{
     width: 100%;
     height: 100%;
     display: -webkit-flex;
@@ -25,20 +25,20 @@
     z-index: 99;
 }
 
-.Greeting__container___1dUR8 h1, .Greeting__container___1dUR8 p{
+.Greeter__container___3oZQv h1, .Greeter__container___3oZQv p{
     font-family: Helvetica, Arial, sans-serif;
 }
 
-.Greeting__container___1dUR8.Greeting__hidden___1cOZb{
+.Greeter__container___3oZQv.Greeter__hidden___2lKLv{
     visibility: hidden;
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
 
-.Greeting__greeting___3Jgms {
+.Greeter__greeting___2UPMV {
 }
 
-.Greeting__greetingTitle___1a4k2{
+.Greeter__greetingTitle___2l97u{
     -webkit-align-self: flex-end;
         -ms-flex-item-align: end;
             align-self: flex-end;
@@ -49,17 +49,17 @@
     font-size: calc(30px + 15 * ((100vw - 420px) / 860));
 }
 
-.Greeting__selectors___2zUok{
+.Greeter__selectors___2ESWA{
     -webkit-flex: 1 100%;
         -ms-flex: 1 100%;
             flex: 1 100%;
 }
 
-.Greeting__selectors___2zUok button {
+.Greeter__selectors___2ESWA button {
     cursor: pointer;
 }
 
-.Greeting__warning___3fVRW{
+.Greeter__warning___1Ll3C{
     color: mediumslateblue;
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -67,12 +67,12 @@
     font-size: calc(12px + 2 * ((100vw - 420px) / 860));
 }
 
-.Greeting__warning___3fVRW.Greeting__visible___gHhhZ{
+.Greeter__warning___1Ll3C.Greeter__visible___1SI5q{
     opacity: 1;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
-.Greeting__backButton___rK0CW{
+.Greeter__backButton___GyQVZ{
     position: absolute;
     z-index: 98;
     border: none;
@@ -85,7 +85,7 @@
     background: transparent;
 }
 
-.Greeting__backTitle___23F4y{
+.Greeter__backTitle___2GGb9{
     text-transform: uppercase;
     color: white;
     font-weight: bold;
@@ -93,7 +93,7 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
-.Greeting__arrow___jt5SV{
+.Greeter__arrow___3D7oY{
     background: url(fab52fb5fd16f7c7fd23cdb2687ea35a.svg);
     width: 15px;
     height: 15px;
@@ -104,22 +104,22 @@
 
 @media screen and (min-width: 1280px){
 
-    .Greeting__greetingTitle___1a4k2{
+    .Greeter__greetingTitle___2l97u{
         font-size: 45px;
     }
 
-    .Greeting__warning___3fVRW{
+    .Greeter__warning___1Ll3C{
         font-size: 14px;
     }
 }
 
 @media screen and (max-width: 420px){
 
-    .Greeting__greetingTitle___1a4k2{
+    .Greeter__greetingTitle___2l97u{
         font-size: 30px;
     }
 
-    .Greeting__warning___3fVRW{
+    .Greeter__warning___1Ll3C{
         font-size: 12px;
     }
 }

@@ -1,0 +1,43 @@
+.slider {
+    -webkit-appearance: none;
+    height: 8px;
+    width: 500px;
+    background: darken(#ddd, 30%);
+    border: none;
+    border-radius: 3px;
+
+    &:focus{
+        outline: none;
+    }
+}
+
+:global input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    position: relative;
+}
+
+:global input[type="range"]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    position: relative;
+}
+
+:global input[type="range"]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    position: relative;
+}

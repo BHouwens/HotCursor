@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { WebView } from '../components/WebView/WebView';
+import { WebViewComponent } from '../components/WebView/WebView';
 
 function mapStateToProps(state) {
     let { webView } = state;
@@ -11,6 +11,6 @@ function mapStateToProps(state) {
     }
 }
 
-export const WebViewer = connect(
+export const WebView = connect(
     mapStateToProps
-)( WebView );
+)( WebViewComponent );

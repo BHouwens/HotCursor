@@ -1,13 +1,6 @@
 import { hotCursor } from '../utils/HotCursor';
 import { fetchWebView } from './webView';
 
-export function setVisibility(state) {
-    return {
-        type: 'SET_WARNING',
-        state
-    }
-}
-
 /*- Fetches data for specific session -*/
 
 export function fetchSessionData(session) {
@@ -31,16 +24,8 @@ function requestSessionData() {
 
 function gotSessionData(sessionData) {
     return {
-        type: 'GOT_SESSION_DATA',
-        sessionData
+        type: 'GOT_SESSION_DATA'
     }
-}
-
-export function selectSession(session) {
-    return {
-        type: 'SELECT_SESSION',
-        session
-    };
 }
 
 /*- Fetches all possible sessions for the selected project -*/
@@ -68,4 +53,8 @@ function gotSessions(sessions) {
 
 function requestSessions() {
     return { type: 'REQUEST_SESSIONS' };
+}
+
+export function resetSessions() {
+    return { type: 'RESET_SESSIONS' };
 }
