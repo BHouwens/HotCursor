@@ -9,7 +9,7 @@ import { createStore, applyMiddleware } from 'redux';
 
 import { App } from './components';
 import { rootReducer } from './reducers';
-import { fetchProjects } from './actions/projectSelection';
+import { fetchProjects } from './actions/projectSelectionActions';
 
 const loggerMiddleware = createLogger();
 

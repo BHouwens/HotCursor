@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { GreeterComponent } from './GreeterComponent';
-import { resetProject } from '../../actions/greeter';
-import { resetSessions } from '../../actions/sessionSelection';
+import { resetProject } from '../../actions/greeterActions';
+import { resetSessions } from '../../actions/sessionSelectionActions';
 
 function mapStateToProps(state) {
     let { greeter } = state;
