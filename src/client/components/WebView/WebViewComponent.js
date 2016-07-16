@@ -41,7 +41,6 @@ export class WebViewComponent extends React.Component {
 
         return (
             <div className={styles.webView}>
-                <div className={styles.cover}></div>
                 <canvas ref="canvas" width={width} height={height}></canvas>
             </div>
         );

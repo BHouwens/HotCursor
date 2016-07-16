@@ -1,5 +1,6 @@
 import { hotCursor } from '../utils/HotCursor';
 import { fetchWebView } from './webViewActions';
+import { setupHeatmap } from './heatmapActions';
 
 /*- Fetches data for specific session -*/
 
@@ -15,6 +16,7 @@ export function fetchSessionData(session) {
 
         dispatch(gotSessionData(sessionData));
         dispatch(fetchWebView(width, height, url));
+        dispatch(setupHeatmap(session));
     }
 }
 

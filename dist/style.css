@@ -132,49 +132,100 @@
     width: 100%;
     height: 100%;
     z-index: 2;
-}.TimeScrubber__slider___2ItHh {
-    -webkit-appearance: none;
-    height: 8px;
-    width: 500px;
-    background: rgb(155,155,155);
-    border: none;
-    border-radius: 3px;
+}.HeatMap__heatmap___2Lsar:before,
+.HeatMap__heatmap___2Lsar:after{
+    content: ' ';
+    display: table;
 }
 
-.TimeScrubber__slider___2ItHh:focus{
-    outline: none;
+.HeatMap__heatmap___2Lsar:after{
+    clear: both;
 }
 
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: #555;
+.HeatMap__heatmap___2Lsar{
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    display: block;
+    zoom: 1;
+}
+
+.HeatMap__button___1cgir{
+    margin: 0 auto;
+    display: block;
+}
+
+.HeatMap__button_container___36v9R{
+    position: fixed;
+    width: 100%;
+    padding: 10px 0;
+    bottom: 0;
+    transition: 0.3s;
+    background: rgb(55,144,137);
+    z-index: 3;
+}
+
+.HeatMap__button_container___36v9R.HeatMap__hidden___3uI4N{
+    visibility: hidden;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+.HeatMap__complete___3_2qw{
+    bottom: -60px;
+    background: palevioletred;
+    color: white;
+    text-align: center;
     cursor: pointer;
-    position: relative;
+    text-transform: capitalize;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: -1px 2px 15px 0px rgba(0,0,0,0.5);
 }
 
-input[type="range"]::-ms-thumb {
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: #555;
-    cursor: pointer;
-    position: relative;
+.HeatMap__complete___3_2qw.HeatMap__visible___1XriE{
+    bottom: 0;
 }
 
-input[type="range"]::-moz-range-thumb {
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: #555;
-    cursor: pointer;
-    position: relative;
-}body,
+.HeatMap__overlay___2z3eV{
+   visibility: hidden;
+   opacity: 0;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   width: 100%;
+   background: black;
+   height: 100%;
+   position: absolute;
+   display: block;
+   z-index: 2;
+   transition: 0.3s;
+}
+
+.HeatMap__overlay___2z3eV.HeatMap__visible___1XriE{
+    opacity: 0.5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    visibility: visible;
+}
+
+.HeatMap__loader___3CMgq{
+    background: url(d3a8efd59144f99ab24dd956373c57d7.svg);
+    width: 120px;
+    height: 120px;
+    display: block;
+    transition: 0.3s;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 40%;
+    z-index: 99;
+}
+
+.HeatMap__loader___3CMgq.HeatMap__hidden___3uI4N{
+    visibility: hidden;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+body,
 html{
     margin: 0;
     padding: 0;

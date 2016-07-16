@@ -1,6 +1,6 @@
 const initialState = {
-    width: 1920,
-    height: 1080,
+    width: null,
+    height: null,
     loading: false,
     url: './screenshot'
 };
