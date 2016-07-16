@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchSessions } from '../actions/sessionSelection';
+import { fetchSessions } from '../../actions/sessionSelection';
 import { ProjectSelectComponent } from './ProjectSelectComponent';
 
 function mapStateToProps(state) {

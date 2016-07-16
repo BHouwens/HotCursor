@@ -132,6 +132,48 @@
     width: 100%;
     height: 100%;
     z-index: 2;
+}.TimeScrubber__slider___2ItHh {
+    -webkit-appearance: none;
+    height: 8px;
+    width: 500px;
+    background: rgb(155,155,155);
+    border: none;
+    border-radius: 3px;
+}
+
+.TimeScrubber__slider___2ItHh:focus{
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="range"]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="range"]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    position: relative;
 }body,
 html{
     margin: 0;
