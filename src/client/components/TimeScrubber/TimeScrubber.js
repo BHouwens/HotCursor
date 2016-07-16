@@ -1,13 +1,11 @@
-import React from 'react';
-import styles from './TimeScrubber.css';
+import { connect } from 'react-redux';
+import { TimeScrubberComponent } from './TimeScrubberComponent';
 
-export class TimeScrubberComponent extends React.Component {
-
-    render() {
-        return (
-            <div className={styles.timescrub}>
-                <input type="range" className={styles.slider} min="0" max="100" />
-            </div>
-        );
-    }
+function mapStateToProps(state) {
+    let { timeScrubber } = state;
+    return { data: timeScrubber.data };
 }
+
+export const TimeScrubber = connect(
+    mapStateToProps
+)( TimeScrubberComponent );

@@ -1,17 +1,26 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import { fetchSessionData } from '../actions/sessionSelection';
+import { SessionSelectComponent } from './SessionSelectComponent';
 
-export class SessionSelect extends React.Component {
+function mapStateToProps(state) {
+    let { sessionSelection } = state;
 
-    render() {
-        let { sessions, onSessionSelect, defaultSelection } = this.props;
+    return { 
+        sessions: sessionSelection.sessions, 
+        loading: sessionSelection.loading,
+        defaultSelection: sessionSelection.defaultSelection
+    };
+}
 
-        return (
-            <select defaultValue={defaultSelection} onChange={(e) => onSessionSelect(e.target.value) }>
-                <option key="0">{defaultSelection}</option>
-                {sessions.map(session => {
-                    return <option key={session}>{session}</option>
-                }) }
-            </select>
-        );
+function mapDispatchToState(dispatch) {
+    return {
+        onSessionSelect: (session) => {
+            dispatch(fetchSessionData(session));
+        }
     }
 }
+
+export const SessionSelect = connect(
+    mapStateToProps,
+    mapDispatchToState
+)( SessionSelectComponent );

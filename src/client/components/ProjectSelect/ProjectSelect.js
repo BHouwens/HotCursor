@@ -1,16 +1,26 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import { fetchSessions } from '../actions/sessionSelection';
+import { ProjectSelectComponent } from './ProjectSelectComponent';
 
-export class ProjectSelect extends React.Component{
-    render() {
-        let { projects, onProjectSelect, defaultValue } = this.props;
+function mapStateToProps(state) {
+    let { projectSelection } = state;
 
-        return (
-            <select defaultValue={defaultValue} onChange={(e) => onProjectSelect(e.target.value) }>
-                <option key="0">{defaultValue}</option>
-                {projects.map(project => {
-                    return <option key={project}>{project}</option>
-                }) }
-            </select>
-        );
+    return { 
+        projects: projectSelection.allProjects, 
+        loading: projectSelection.loading,
+        defaultValue: projectSelection.defaultValue
+    };
+}
+
+function mapDispatchToState(dispatch) {
+    return {
+        onProjectSelect: (project) => {
+            dispatch(fetchSessions(project));
+        }
     }
 }
+
+export const ProjectSelect = connect(
+    mapStateToProps,
+    mapDispatchToState
+)( ProjectSelectComponent );
