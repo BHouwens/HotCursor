@@ -24,8 +24,12 @@
     width: 16px;
     border-radius: 50%;
     background: #555;
-    cursor: pointer;
+    cursor: -webkit-grab;
     position: relative;
+
+    &:active{
+        cursor: -webkit-grabbing;
+    }
 }
 
 :global input[type="range"]::-ms-thumb {
@@ -44,6 +48,10 @@
     width: 16px;
     border-radius: 50%;
     background: #555;
-    cursor: pointer;
+    cursor: -moz-grab;
     position: relative;
+
+    &:active{
+        cursor: -moz-grabbing;
+    }
 }

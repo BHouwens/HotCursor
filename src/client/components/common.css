@@ -11,3 +11,14 @@
 .darkText {
     color: var(--darkText);
 }
+
+.controlButton {
+    width: 30px;
+    height: 30px;
+    margin-top: 4px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    background-size: contain;
+    display: inline-block;
+}

@@ -16,7 +16,7 @@ const store = createStore(
     applyMiddleware(thunkMiddleware)
 );
 
-// store.dispatch(fetchProjects());
+store.dispatch(fetchProjects());
 
 renderToDom(
     <Provider store={store}>

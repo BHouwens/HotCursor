@@ -1,4 +1,5 @@
 import { hotCursor } from '../utils/HotCursor';
+import { setTimeScrubberData } from './timeScrubberActions';
 
 /*- Straight actions -*/
 
@@ -77,7 +78,7 @@ function subscribeAndGenerate(dispatch, dataFeed) {
         },
 
         () => {
-            dispatch(setData(dataStore));
+            dispatch(setTimeScrubberData(dataStore));
         }
     );
 }

@@ -12,6 +12,17 @@
 
 .common__darkText___iHD2Z {
     color: #707070;
+}
+
+.common__controlButton___EYRDP {
+    width: 30px;
+    height: 30px;
+    margin-top: 4px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    background-size: contain;
+    display: inline-block;
 }.Greeter__container___3oZQv{
     width: 100%;
     height: 100%;
@@ -257,7 +268,7 @@
 .Clock__title___12bHj{
     text-transform: uppercase;
     font-weight: 400;
-    font-size: calc(10px + 2 * ((100vw - 420px) / 860));
+    font-size: calc(8px + 2 * ((100vw - 420px) / 860));
 }
 
 @media screen and (min-width: 1280px){
@@ -267,7 +278,7 @@
     }
 
     .Clock__title___12bHj{
-        font-size: 12px;
+        font-size: 10px;
     }
 }
 
@@ -278,7 +289,7 @@
     }
 
     .Clock__title___12bHj{
-        font-size: 10px;
+        font-size: 8px;
     }
 }.TimeScrubber__timescrub___1iEnQ{
     margin-top: 10px;
@@ -308,8 +319,12 @@ input[type="range"]::-webkit-slider-thumb {
     width: 16px;
     border-radius: 50%;
     background: #555;
-    cursor: pointer;
+    cursor: -webkit-grab;
     position: relative;
+}
+
+input[type="range"]::-webkit-slider-thumb:active{
+    cursor: -webkit-grabbing;
 }
 
 input[type="range"]::-ms-thumb {
@@ -328,8 +343,12 @@ input[type="range"]::-moz-range-thumb {
     width: 16px;
     border-radius: 50%;
     background: #555;
-    cursor: pointer;
+    cursor: -moz-grab;
     position: relative;
+}
+
+input[type="range"]::-moz-range-thumb:active{
+    cursor: -moz-grabbing;
 }.ControlButtons__controlButtonContainer___3WL-Q{
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
@@ -346,12 +365,46 @@ input[type="range"]::-moz-range-thumb {
             justify-content: flex-end;
 }
 
-.ControlButtons__runningButton___1bTvL{
+.ControlButtons__controlButtonContainer___3WL-Q section{
+    text-align: center;
+    max-width: 50px;
+}
 
+.ControlButtons__controlButtonContainer___3WL-Q section:first-of-type{
+    margin-right: 30px;
+}
+
+.ControlButtons__runningButton___1bTvL{
+    background-image: url(84ce4d0a44868ddbd51aa8f60322fae2.svg);
+}
+
+.ControlButtons__runningButton___1bTvL.ControlButtons__play___3XBZf{
+    background-image: url(eea4d0c1ec1c71d4970f9543b2689527.svg);
 }
 
 .ControlButtons__exportButton___QwXcA{
-    
+    background-image: url(e3a61e4a6ce74c7b16a51feed3902248.svg);
+}
+
+.ControlButtons__title___gO2_C{
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-size: calc(8px + 2 * ((100vw - 420px) / 860));
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (min-width: 1280px){
+
+    .ControlButtons__title___gO2_C{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 420px){
+
+    .ControlButtons__title___gO2_C{
+        font-size: 8px;
+    }
 }.ControlBar__controlBar___3EGA7{
     display: -webkit-flex;
     display: -ms-flexbox;

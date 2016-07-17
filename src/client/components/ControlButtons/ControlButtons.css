@@ -4,12 +4,35 @@
     display: flex;
     flex: 1 100%;
     justify-content: flex-end;
+
+    section{
+        text-align: center;
+        max-width: 50px;
+    }
+
+    section:first-of-type{
+        margin-right: 30px;
+    }
 }
 
 .runningButton{
+    background-image: url('./images/pause.svg');
+    composes: controlButton from '../common.css';
 
+    &.play{
+        background-image: url('./images/play.svg');
+    }
 }
 
 .exportButton{
-    
+    background-image: url('./images/export.svg');
+    composes: controlButton from '../common.css';
+}
+
+.title{
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-size: responsive 8px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    composes: darkText from '../common.css';
 }
