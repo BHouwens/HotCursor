@@ -8,6 +8,10 @@
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
+}
+
+.common__darkText___iHD2Z {
+    color: #707070;
 }.Greeter__container___3oZQv{
     width: 100%;
     height: 100%;
@@ -225,7 +229,142 @@
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
-body,
+.Clock__clock___5As-z{
+    -webkit-flex: 1 100%;
+        -ms-flex: 1 100%;
+            flex: 1 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-left: 30px;
+    text-align: left;
+    font-size: calc(28px + 4 * ((100vw - 420px) / 860));
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Clock__chunk___323bZ{
+    margin: 0 5px;
+    text-align: center;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+}
+
+.Clock__title___12bHj{
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: calc(10px + 2 * ((100vw - 420px) / 860));
+}
+
+@media screen and (min-width: 1280px){
+
+    .Clock__clock___5As-z{
+        font-size: 32px;
+    }
+
+    .Clock__title___12bHj{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 420px){
+
+    .Clock__clock___5As-z{
+        font-size: 28px;
+    }
+
+    .Clock__title___12bHj{
+        font-size: 10px;
+    }
+}.TimeScrubber__timescrub___1iEnQ{
+    margin-top: 10px;
+    margin-left: 40px;
+    -webkit-flex: 2 100%;
+        -ms-flex: 2 100%;
+            flex: 2 100%;
+}
+
+.TimeScrubber__slider___2ItHh {
+    -webkit-appearance: none;
+    height: 8px;
+    width: 500px;
+    background: rgb(155,155,155);
+    border: none;
+    border-radius: 3px;
+}
+
+.TimeScrubber__slider___2ItHh:focus{
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="range"]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="range"]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    position: relative;
+}.ControlButtons__controlButtonContainer___3WL-Q{
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-right: 30px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex: 1 100%;
+        -ms-flex: 1 100%;
+            flex: 1 100%;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+}
+
+.ControlButtons__runningButton___1bTvL{
+
+}
+
+.ControlButtons__exportButton___QwXcA{
+    
+}.ControlBar__controlBar___3EGA7{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 0;
+    background: #f2f2f2;
+}body,
 html{
     margin: 0;
     padding: 0;

@@ -12,7 +12,7 @@ export function heatmap(state = initialState, action) {
         case 'SET_CONFIG':
             return Object.assign({}, state, { config: action.config });
 
-        case 'ADD_DATA':
+        case 'SET_DATA':
             return Object.assign({}, state, { data: action.data });
 
         default:

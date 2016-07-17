@@ -1,5 +1,7 @@
 import { hotCursor } from '../utils/HotCursor';
 
+/*- Straight actions -*/
+
 export function setupHeatmap(session) {
     return {
         type: 'SETUP_HEATMAP',
@@ -14,9 +16,9 @@ export function setConfig(config) {
     };
 }
 
-function addData(data) {
+function setData(data) {
     return {
-        type: 'ADD_DATA',
+        type: 'SET_DATA',
         data
     };
 }
@@ -75,7 +77,7 @@ function subscribeAndGenerate(dispatch, dataFeed) {
         },
 
         () => {
-            dispatch(addData(dataStore));
+            dispatch(setData(dataStore));
         }
     );
 }

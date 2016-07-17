@@ -1,0 +1,15 @@
+.controlButtonContainer{
+    flex-direction: row;
+    margin-right: 30px;
+    display: flex;
+    flex: 1 100%;
+    justify-content: flex-end;
+}
+
+.runningButton{
+
+}
+
+.exportButton{
+    
+}

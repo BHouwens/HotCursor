@@ -1,0 +1,9 @@
+.controlBar{
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 0;
+    background: #f2f2f2;
+}

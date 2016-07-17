@@ -1,5 +1,13 @@
+:root {
+    --darkText: #707070;
+}
+
 .flexChildColumn {
     flex: 1;
     flex-direction: column;
     justify-content: center;
+}
+
+.darkText {
+    color: var(--darkText);
 }
