@@ -3,19 +3,20 @@ import { fetchSessionData } from '../../actions/sessionSelectionActions';
 import { SessionSelectComponent } from './SessionSelectComponent';
 
 function mapStateToProps(state) {
-    let { sessionSelection } = state;
+    let { sessionSelection, heatmap } = state;
 
     return { 
         sessions: sessionSelection.sessions, 
         loading: sessionSelection.loading,
+        config: heatmap.config,
         defaultSelection: sessionSelection.defaultSelection
     };
 }
 
 function mapDispatchToState(dispatch) {
     return {
-        onSessionSelect: (session) => {
-            dispatch(fetchSessionData(session));
+        onSessionSelect: (config, session) => {
+            dispatch(fetchSessionData(config, session));
         }
     }
 }

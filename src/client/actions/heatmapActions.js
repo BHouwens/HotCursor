@@ -7,20 +7,20 @@ export function setupHeatmap(session) {
     };
 }
 
-export function setToInactive() {
-    return { type: 'INACTIVE' };
-}
-
-function addDataPoint(datapoint) {
+export function setConfig(config) {
     return {
-        type: 'ADD_DATAPOINT',
-        datapoint
+        type: 'SET_CONFIG',
+        config
     };
 }
 
-function complete() {
-    return { type: 'COMPLETE_HEATMAP' };
+function addData(data) {
+    return {
+        type: 'ADD_DATA',
+        data
+    };
 }
+
 
 
 /**
@@ -33,6 +33,8 @@ function complete() {
 export function generateHeatmap(config, session) {
 
     return async function(dispatch) {
+        dispatch(setupHeatmap(session));
+        
         const dataFeed = await hotCursor.getHeatMapData(config, session);
         subscribeAndGenerate(dispatch, dataFeed);
     }
@@ -43,10 +45,13 @@ export function generateHeatmap(config, session) {
 /**
  *  Subscribes to the data feed and pipes it to the heatmap
  * 
+ *  @param {function} dispatch - Redux dispatch function
  *  @param {Rx.Observable} dataFeed - Data feed to subscribe to
  */
 
 function subscribeAndGenerate(dispatch, dataFeed) {
+    let dataStore = [];
+
     dataFeed.subscribe(
         entry => {
             hotCursor.heatmap.addData({
@@ -60,7 +65,7 @@ function subscribeAndGenerate(dispatch, dataFeed) {
                 hotCursor.currentScrollPosition = entry.scrollPosition;
             }
 
-            dispatch(addDataPoint(entry));
+            dataStore.push(entry);
         },
 
         error => {
@@ -70,8 +75,7 @@ function subscribeAndGenerate(dispatch, dataFeed) {
         },
 
         () => {
-            dispatch(complete);
-            // this.setState({ completeClasses: styles.complete + ' ' + styles.visible });
+            dispatch(addData(dataStore));
         }
     );
 }

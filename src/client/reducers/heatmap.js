@@ -1,27 +1,19 @@
 const initialState = {
     session: '',
-    active: false,
-    data: []
+    data: [],
+    config: {}
 };
 
 export function heatmap(state = initialState, action) {
     switch(action.type) {
         case 'SETUP_HEATMAP':
-            return Object.assign({}, state, { 
-                session: action.session,
-                active: true
-            });
+            return Object.assign({}, state, { session: action.session });
 
-        case 'INACTIVE':
-            return Object.assign({}, state, {
-                active: false
-            });
+        case 'SET_CONFIG':
+            return Object.assign({}, state, { config: action.config });
 
-        case 'ADD_DATAPOINT':
-            let { data } = state;
-            data.push(action.datapoint);
-
-            return Object.assign({}, state, { data });
+        case 'ADD_DATA':
+            return Object.assign({}, state, { data: action.data });
 
         default:
             return state;

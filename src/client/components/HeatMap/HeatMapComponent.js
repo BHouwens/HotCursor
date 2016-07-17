@@ -9,41 +9,25 @@ export class HeatMapComponent extends React.Component {
     constructor(props) {
         super(props);
 
-        this.generateHeatMap = this.generateHeatMap.bind(this);
-
         this.state = {
-            overlayClasses: styles.overlay,
-            buttonClasses: styles.button_container,
-            completeClasses: styles.complete,
+            overlayClasses: styles.overlay + ' ' + styles.visible,
             loaderClasses: styles.loader + ' ' + styles.hidden
         };
     }
-    
-    generateHeatMap() {
-        let { session, onGenerateHeatmap } = this.props,
-            config = { container: document.querySelector('.' + styles.overlay), radius: 50 };
 
-        this.setState({
-            overlayClasses: styles.overlay + ' ' + styles.visible,
-            buttonClasses: styles.button_container + ' ' + styles.hidden,
-            loaderClasses: styles.loader
-        });
+    componentDidMount() {
+        let { onSetupConfig } = this.props;
 
-        onGenerateHeatmap(config, session);
-        this.setState({ loaderClasses: styles.loader + ' ' + styles.hidden });
-    }
+        const config = {
+            container: document.querySelector('.' + styles.overlay), 
+            radius: 50 
+        };
 
-    shouldComponentUpdate() {
-        let { active } = this.props;
-        return active;
-    }
-
-    componentDidUpdate() {
-        this.generateHeatMap();
+        onSetupConfig(config);
     }
 
     render() {
-        let { height, width, active } = this.props;
+        let { height, width } = this.props;
         let containerStyles = {
                 height: height + 'px',
                 width: width + 'px'
@@ -52,11 +36,6 @@ export class HeatMapComponent extends React.Component {
         return (
             <div className={styles.heatmap} style={containerStyles}>
                 <div className={this.state.loaderClasses}></div>
-
-                <div className={this.state.buttonClasses}>
-                    <button id="clicker" className={styles.button} onClick={this.generateHeatMap}>Start Heatmap</button>
-                </div>
-
                 <div className={this.state.overlayClasses}></div>
             </div>
         );

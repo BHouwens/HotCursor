@@ -1,10 +1,10 @@
 import { hotCursor } from '../utils/HotCursor';
 import { fetchWebView } from './webViewActions';
-import { setupHeatmap } from './heatmapActions';
+import { generateHeatmap } from './heatmapActions';
 
 /*- Fetches data for specific session -*/
 
-export function fetchSessionData(session) {
+export function fetchSessionData(config, session) {
     return async function (dispatch) {
         dispatch(requestSessionData);
 
@@ -16,7 +16,7 @@ export function fetchSessionData(session) {
 
         dispatch(gotSessionData(sessionData));
         dispatch(fetchWebView(width, height, url));
-        dispatch(setupHeatmap(session));
+        dispatch(generateHeatmap(config, session));
     }
 }
 
