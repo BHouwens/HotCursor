@@ -2,28 +2,16 @@
 
 Heatmap tool to view user behaviour over time, for UX.
 
-## Getting Started
+## What's the Point?
 
-If you really want to try this in a dev environment, you can clone and run:
+Usability testing can sometimes be expensive or inaccessible for a variety of reasons. Analytics are a great way of gathering user data remotely, but they can't give you a sense of the journeys and behaviours users make in an intuitive way, in "real time". 
 
-    make install
-    make start
+The idea behind this is to give a designer a free, easy-to-setup remote usability testing tool, allowing them to view user journeys and behaviours across different desired parameters.
 
-You can also run the following to see available Makefile scripts:
+## Different Parameters?
 
-    make help
+Dan Formosa of the well-known industrial design company Smart Design introduced the concept of "designing for extremes" to many in the documentary _Objectified_. The idea goes that if you focus your design on the weakest user/s (read "slowest", "most erratic", "arthritic" etc) and the strongest (read the "fastest" etc) then the middle kind of takes care of itself.
 
-### TODO
+This kind of idea makes sense for this tool if we think about these categorisations as ways of focussing on the heatmaps we actually want to see. Thus, we could say that a parameter we are interested in is the slowest person, and the tool should be able to present the us with the 5 slowest people we have heatmaps on. We could then inspect these in-depth and likely discover exactly *why* they are the slowest.
 
-- [x] Push data to Firebase via movement
-- [x] Push data to Firebase via scroll
-- [x] Generate heatmap
-- [x] Implement time sensitivity via RxJS
-- [x] Handle scrolls beyond the initial height (semi there)
-- [x] Loading icon while pulling data
-- [x] Implement a completion notifier
-- [ ] Make it responsively aware
-- [x] Make it able to redirect to URL
-- [ ] Allow time manipulation
-- [ ] Show current time of user's session
-- [ ] Implement running state buttons
+This is where the proper power and utility of this kind of tool comes in.
